@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/route_options"
+    android:padding="16dp"
+    android:background="@drawable/background"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:paddingBottom="8dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:paddingRight="16dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_directions_bus_black_24dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Route Name"
+            android:paddingLeft="8dp"
+            android:id="@+id/route_name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Stop Name - End Stop Name"
+        android:id="@+id/route_start_stop"
+        android:paddingLeft="48dp"
+        android:textSize="18sp"
+
+        />
+
+</LinearLayout>
