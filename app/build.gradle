@@ -15,8 +15,27 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            buildConfigField("String", "MAPS_API_KEY", "\"" + getTmdbApiKey() + "\"")
+            resValue("string", "google_maps_key", getTmdbApiKey())
+        }
+
+        debug {
+            resValue("string", "google_maps_key",  getTmdbApiKey())
+
         }
     }
+}
+
+def getTmdbApiKey() {
+    def tmdbApiKey = System.getenv("google_maps_key")
+    if (tmdbApiKey == null || tmdbApiKey.length() == 0) {
+        def keysFile = rootProject.file("local.properties")
+        def keysProperties = new Properties()
+        keysProperties.load(new FileInputStream(keysFile))
+        tmdbApiKey = keysProperties['google_maps_key']
+
+    }
+    return tmdbApiKey
 }
 
 dependencies {
