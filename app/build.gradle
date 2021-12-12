@@ -16,23 +16,24 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 //            buildConfigField("String", "MAPS_API_KEY", "\"" + getTmdbApiKey() + "\"")
-            resValue("string", "google_maps_key", getTmdbApiKey())
+            resValue("string", "google_maps_key", getEnv("google_maps_key"))
+            resValue("string", "backend_metadata_api", getEnv("backend_metadata_api"))
         }
 
         debug {
-            resValue("string", "google_maps_key",  getTmdbApiKey())
-
+            resValue("string", "google_maps_key",  getEnv("google_maps_key"))
+            resValue("string", "backend_metadata_api", getEnv("backend_metadata_api"))
         }
     }
 }
 
-def getTmdbApiKey() {
-    def tmdbApiKey = System.getenv("google_maps_key")
+def getEnv(variable) {
+    def tmdbApiKey = System.getenv(variable)
     if (tmdbApiKey == null || tmdbApiKey.length() == 0) {
         def keysFile = rootProject.file("local.properties")
         def keysProperties = new Properties()
         keysProperties.load(new FileInputStream(keysFile))
-        tmdbApiKey = keysProperties['google_maps_key']
+        tmdbApiKey = keysProperties[variable]
 
     }
     return tmdbApiKey

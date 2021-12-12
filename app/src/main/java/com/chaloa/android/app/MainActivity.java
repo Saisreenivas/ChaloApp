@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
             try{
-                URL url = new URL("http://mock.chalo.com:8080/metadata");
+                URL url = new URL(getString(R.string.backend_metadata_api));
                 Log.v("TEST","Hello");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(15000  /*milliseconds*/ );

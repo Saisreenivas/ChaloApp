@@ -1,4 +1,5 @@
 # ChaloApp
+[![CircleCI](https://circleci.com/gh/Saisreenivas/ChaloApp.svg?style=svg)](https://circleci.com/gh/Saisreenivas/ChaloApp)
 Chalo Android App
 
 Develop a mobile application that will help the user search for a particular route and let them see the stop
